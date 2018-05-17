@@ -145,7 +145,7 @@
 		<copy todir="${build.src}" overwrite="yes">
 			<fileset 
   	  	            dir="${resource.dir}"
-  	  	        	includes="cz/** org/sbml/tolatex/**, **/*.properties, **/*.xml"
+  	  	        	includes="cz/**, org/sbml/tolatex/**, **/*.properties, **/*.xml"
   	  	            excludes="**/.svn*, **/*~, **/*.tgz, **/*.zip">
 			</fileset>
 		</copy>
@@ -220,8 +220,8 @@
 
 		<copy todir="${build.dest}">
 			<fileset dir="${build.src}" 
-				includes="**/*.png **/*.gif **/*.xsd **/*.tmpl **/data/* **/*.xml **/*.cfg
-					  **/*.obo **/*.properties **/*.pdf **/*.eps **/*.bbl **/*.tex"> <!-- **/*.java **/*.html ?? -->
+				includes="**/*.png, **/*.gif, **/*.xsd, **/*.tmpl, **/data/*, **/*.xml, **/*.cfg,
+					  **/*.obo, **/*.properties, **/*.pdf, **/*.eps, **/*.bbl, **/*.tex, **/*.sty, **/*.html">
 			</fileset>
 		</copy>
 		<jar jarfile="${build.dir}/${name}-${version}.jar" basedir="${build.dest}" manifest="${build.dest}/META-INF/MANIFEST.MF"/>
@@ -247,7 +247,8 @@
 		<copy todir="${build.dest}">
 			<fileset
             dir="${build.src}"
-            includes="**/*.png **/*.gif **/*.xsd **/*.tmpl **/data/* **/*.xml **/*.cfg **/*.obo **/*.properties **/*.java" >
+            includes="**/*.png, **/*.gif, **/*.xsd, **/*.tmpl, **/data/*, **/*.xml, **/*.cfg,
+			  **/*.obo, **/*.properties, **/*.pdf, **/*.eps, **/*.bbl, **/*.tex, **/*.sty, **/*.java, **/*.html" >
 			</fileset>
 		</copy>
 		<jar jarfile="${build.dir}/${name}-${version}-with-dependencies.jar"
