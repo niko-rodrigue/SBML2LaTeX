@@ -2810,6 +2810,8 @@ public class LaTeXReportGenerator extends LaTeX implements SBMLReportGenerator {
         subsection(species, speciesIndex, buffer);
         buffer.append(descriptionBegin);
         format(species, buffer, true);
+        
+        // TODO - species.getDerivedUnitDefinition should do all of that alone in the new jsbml
         if (species.isSetInitialConcentration()) {
           String text = format(species.getInitialConcentration()).toString()
               .replaceAll("\\$", "");
@@ -2832,16 +2834,21 @@ public class LaTeXReportGenerator extends LaTeX implements SBMLReportGenerator {
                   .getSubstanceUnits())
                   : model.getUnitDefinition("substance"));
             }
-            Compartment compartment = model.getCompartment(species
-              .getCompartment());
-            for (int i = 0; i < compartment.getDerivedUnitDefinition().getUnitCount(); i++) {
-              Unit unit = new Unit(compartment.getDerivedUnitDefinition().getUnit(i));
-              unit.setExponent(-unit.getExponent());
-              ud.addUnit(unit);
+            
+            Compartment compartment = species.getCompartmentInstance();
+            UnitDefinition compUD = compartment != null ? compartment.getDerivedUnitDefinition() : null;
+            
+            if (compUD != null && compUD.getUnitCount() > 0) {
+              for (int i = 0; i < compUD.getUnitCount(); i++) {
+                Unit unit = new Unit(compUD.getUnit(i));
+                unit.setExponent(-unit.getExponent());
+                ud.addUnit(unit);
+              }
+              text += format(ud);
             }
-            text += format(ud);
           }
           buffer.append(descriptionItem("Initial concentration", math(text)));
+          
         } else if (species.isSetInitialAmount()) {
           String text = format(species.getInitialAmount()).toString()
               .replaceAll("\\$", "");
