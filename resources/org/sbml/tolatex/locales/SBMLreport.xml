@@ -41,13 +41,16 @@
   <entry key="BQB_IS_HOMOLOG_TO">is homolog to</entry>
   <entry key="BQB_IS_PART_OF">is a part of</entry>
   <entry key="BQB_IS_PROPERTY_OF">is a property of</entry>
-  <entry key="BQB_IS_VERSION_OF">is a version of</entry>
+  <entry key="BQB_IS_VERSION_OF">is a version of</entry>  
   <entry key="BQB_OCCURS_IN">occurs in</entry>
+  <entry key="BQB_IS_RELATED_TO">is related to</entry>
   <entry key="BQB_UNKNOWN">has an unknown relationship with</entry>
   <entry key="BQM_UNKNOWN">has something to do with</entry>
+  <entry key="BQM_HAS_INSTANCE">has instance</entry>
   <entry key="BQM_IS">is</entry>
   <entry key="BQM_IS_DERIVED_FROM">is derived from</entry>
   <entry key="BQM_IS_DESCRIBED_BY">is described by</entry>
+  <entry key="BQM_IS_INSTANCE_OF">is instance of</entry>
   <entry key="BQM_UNKNOWN">has something to do with</entry>
   <entry key="CONJUGATION_PRESENT_INDICATIVE_3RD_PERSON_OF_BE">{0,choice,0#are| 1#is| 1&lt;are}</entry>
   <entry key="CONJUNCTION_AND"> and </entry>
